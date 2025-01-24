@@ -855,7 +855,7 @@ class Pokemon(pygame.sprite.Sprite):
 
     def perform_attack(self, other, move, power):
 
-        display_message(self.game, f'{self.name} ä½¿å?? {move}')
+        display_message(self.game, f'{self.name} ¨Ï¥X {move}')
 
         #pause for 2 seconds
         time.sleep(2)
