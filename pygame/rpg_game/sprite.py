@@ -391,7 +391,6 @@ class Flower(pygame.sprite.Sprite):
         self.rect.x = self.x
         self.rect.y = self.y
 
-
 class Bush(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
@@ -856,7 +855,7 @@ class Pokemon(pygame.sprite.Sprite):
 
     def perform_attack(self, other, move, power):
 
-        display_message(self.game, f'{self.name} 使出 {move}')
+        display_message(self.game, f'{self.name} 使�?? {move}')
 
         #pause for 2 seconds
         time.sleep(2)
