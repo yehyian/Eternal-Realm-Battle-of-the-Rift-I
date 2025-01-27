@@ -19,11 +19,11 @@ class battle:
         self.progress = progress
         
         if progress == 'first_battle':
-            self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 70, 6, 40, 30, ['上鉤拳', '橫砍', '蓄力突刺', '閉嘴'], [10, 20, 30, 40], "pygame/rpg_game/img/single.png")
-            self.rival_pokemon = Pokemon(self.game, '魏柏諭', self.level, 25, 150, 100, 5, 34, 40, ['舔屁眼', '吃屌', '偷拍女生', '偷拍女生'], [62, 33, 57, 52], "pygame/rpg_game/img/webber.png")
+            self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 70, 6, 40, 30, ['上鉤拳', '橫砍', '蓄力突刺', '旋風斬'], [10, 20, 30, 40], "pygame/rpg_game/img/single.png")
+            self.rival_pokemon = Pokemon(self.game, '魏柏諭', self.level, 25, 150, 100, 5, 34, 40, ['黏液束縛', '蠕動突進', '怒吼', '野蠻衝撞'], [62, 33, 57, 52], "pygame/rpg_game/img/webber.png")
         if progress == 'battle_with_coach':
-            self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 200, 6, 40, 30, ['閉嘴', '閉嘴', '閉嘴', '閉嘴'], [40, 30, 50, 60], "pygame/rpg_game/img/single.png")
-            self.rival_pokemon = Pokemon(self.game, '教練', self.level, 25, 150, 100, 5, 34, 40, ['舔屁眼', '吃屌', '偷拍女生', '偷拍女生'], [62, 33, 57, 52], "pygame/rpg_game/img/instructor.png")
+            self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 200, 6, 40, 30, ['上鉤拳', '橫砍', '蓄力突刺', '旋風斬'], [40, 30, 50, 60], "pygame/rpg_game/img/single.png")
+            self.rival_pokemon = Pokemon(self.game, '教練', self.level, 25, 150, 100, 5, 34, 40, ['狂暴連擊', '野蠻摔投', '裂地轟擊', '碎顱重拳'], [67, 36, 87, 72], "pygame/rpg_game/img/instructor.png")
 
         self.rival_pokemon.level = int(self.rival_pokemon.level * .75)
 
