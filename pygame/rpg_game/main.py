@@ -17,7 +17,6 @@ class battle:
 
         self.rival = rival
         self.progress = progress
-        #create the starter pokemons
         
         if progress == 'first_battle':
             self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 70, 6, 40, 30, ['上鉤拳', '橫砍', '蓄力突刺', '閉嘴'], [10, 20, 30, 40], "pygame/rpg_game/img/single.png")
@@ -26,10 +25,8 @@ class battle:
             self.player_pokemon = Pokemon(self.game, '節勳', self.level, 175, 70, 200, 6, 40, 30, ['閉嘴', '閉嘴', '閉嘴', '閉嘴'], [40, 30, 50, 60], "pygame/rpg_game/img/single.png")
             self.rival_pokemon = Pokemon(self.game, '教練', self.level, 25, 150, 100, 5, 34, 40, ['舔屁眼', '吃屌', '偷拍女生', '偷拍女生'], [62, 33, 57, 52], "pygame/rpg_game/img/instructor.png")
 
-        #lower the rival pokemon's level to make the battle easier
         self.rival_pokemon.level = int(self.rival_pokemon.level * .75)
 
-        #set the coordinates of the hp bars
         self.player_pokemon.hp_x = 275
         self.player_pokemon.hp_y = 250
         self.rival_pokemon.hp_x = 800
@@ -40,7 +37,6 @@ class battle:
     def main(self):
         #game loop
         while self.game_status != 'quit':
-            #print(self.rival.is_alive)
             for event in pygame.event.get():
                 if event.type == QUIT:
                     self.game_status = 'quit'
@@ -48,10 +44,8 @@ class battle:
                 #detect mouse click
                 if event.type == MOUSEBUTTONDOWN:
                     
-                    #coordinates of the mouse click
                     mouse_click = event.pos
 
-                    # for selecting fight or use potion
                     if self.game_status == 'player turn':
                         
                         time.sleep(.5)
@@ -90,24 +84,19 @@ class battle:
                                 else:
                                     self.game_status = 'rival turn'
             
-            #get moves from the API and reposition the pokemons
             if self.game_status == 'prebattle':
 
-                #draw the selected pokemon
                 g.screen.fill(white)
                 pygame.display.update()
 
                 self.player_pokemon.set_moves()
                 self.rival_pokemon.set_moves()
 
-                #reposition the pokemons
-
                 self.player_pokemon.x = 0
                 self.player_pokemon.y = 150
                 self.rival_pokemon.x = 1000
                 self.rival_pokemon.y = 0
 
-                #resize the sprites
                 self.player_pokemon.size = 300
                 self.rival_pokemon.size = 300
                 self.player_pokemon.set_sprite('back_default')
@@ -118,7 +107,6 @@ class battle:
             #start battle animation
             if self.game_status == 'start battle':
 
-                #rival sends out their pokemon
                 alpha = 0
                 while alpha < 255:
                     g.screen.fill(white)
@@ -128,10 +116,8 @@ class battle:
 
                     pygame.display.update()
                 
-                #pause for 1 second
                 time.sleep(1)
 
-                #player sends out their pokemon
                 alpha = 0
                 while alpha < 255:
                     g.screen.fill(white)
@@ -142,7 +128,6 @@ class battle:
 
                     pygame.display.update()
                 
-                #draw hp bars
                 self.player_pokemon.draw_hp()
                 self.rival_pokemon.draw_hp()
 
@@ -154,10 +139,8 @@ class battle:
 
                 pygame.display.update()
 
-                #pause for 1 second
                 time.sleep(1)
 
-            #display the fight and use potion buttons
             if self.game_status == 'player turn':
 
                 g.screen.fill(white)
@@ -170,12 +153,10 @@ class battle:
                 fight_button = create_button(self.game, 240, 100, 710, 440, 830, 487, '戰鬥')
                 potion_button = create_button(self.game, 240, 100, 950, 440, 1070, 487, f'吃藥({self.player_pokemon.num_potions})')
 
-                #draw the black border
                 pygame.draw.rect(g.screen, black, (710, 440, 480, 100), 3)
 
                 pygame.display.update()
             
-            # display the move buttons
             if self.game_status == 'player move':
                 
                 g.screen.fill(white)
@@ -184,9 +165,7 @@ class battle:
                 self.player_pokemon.draw_hp()
                 self.rival_pokemon.draw_hp()
                 
-                # create a button for each move
                 move_buttons = []
-                #print(len(self.player_pokemon.moves))
                 for i in range(len(self.player_pokemon.moves)):
                     move = self.player_pokemon.moves[i]
                     button_width = 240
@@ -196,7 +175,6 @@ class battle:
                     text_center_x = left + 120
                     text_center_y = top + 35
                     button = create_button(self.game, button_width, button_height, left, top, text_center_x, text_center_y, move)
-                    #print(button_width, button_height, left, top, text_center_x, text_center_y)
                     move_buttons.append(button)
                     
                 # draw the black border
@@ -204,7 +182,6 @@ class battle:
                 
                 pygame.display.update()
 
-            #rival selects a random move to attack with
             if self.game_status == 'rival turn':
 
                 g.screen.fill(white)
@@ -213,7 +190,6 @@ class battle:
                 self.player_pokemon.draw_hp()
                 self.rival_pokemon.draw_hp()
 
-                #empty the display box and pause for 2 seconds before attacking
                 display_message(self.game, '')
                 time.sleep(2)
 
