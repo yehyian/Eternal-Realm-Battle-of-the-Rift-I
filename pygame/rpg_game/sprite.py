@@ -213,6 +213,7 @@ class Player(pygame.sprite.Sprite):
             #dsvhdkcjsikhduvhsdhuhuhsduhishusdchushusdcuhjksdhujksfdchujksedfguefsogulvewdwguevdewgfhueflh print(self.text, self.text_rect)
             self.game.screen.blit(self.text, self.text_rect)  
 
+#enemy
 class Webber(pygame.sprite.Sprite):
     def __init__(self, game, x, y):
         self.game = game
@@ -855,7 +856,7 @@ class Pokemon(pygame.sprite.Sprite):
 
     def perform_attack(self, other, move, power):
 
-        display_message(self.game, f'{self.name} ¨使出 {move}')
+        display_message(self.game, f'{self.name} ¨使�?? {move}')
 
         #pause for 2 seconds
         time.sleep(2)
