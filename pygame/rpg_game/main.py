@@ -270,7 +270,7 @@ class Game:
         self.end_background = pygame.image.load("pygame/rpg_game/img/continue.png")
 
         self.progress = 'start'
-        self.phase = 3
+        self.phase = 0  
         self.walk_count = 0
         self.killed_enemies = 0
         
